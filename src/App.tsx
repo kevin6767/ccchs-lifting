@@ -6,46 +6,62 @@ const App: React.FC = () => {
     const workoutPlan = {
         workouts: [
             {
-                name: 'Warm Up',
-                sets: [{ duration: 30, cooldown: 10, participantCooldown: 20 }],
-                cooldown: 20,
-                setCount: 12,
-            },
-            {
-                name: 'Workout 1',
+                name: 'Squat',
                 sets: [
-                    { duration: 45, cooldown: 15, participantCooldown: 20 },
-                    { duration: 45, cooldown: 15, participantCooldown: 20 },
-                    { duration: 45, cooldown: 15, participantCooldown: 20 },
-                    { duration: 45, cooldown: 15, participantCooldown: 20 },
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
                 ],
                 cooldown: 30,
-                setCount: 12,
+                setCount: 3,
             },
             {
-                name: 'Workout 2',
+                name: 'Front Squat',
                 sets: [
-                    { duration: 60, cooldown: 20, participantCooldown: 20 },
-                    { duration: 60, cooldown: 20, participantCooldown: 20 },
-                    { duration: 60, cooldown: 20, participantCooldown: 20 },
-                    { duration: 60, cooldown: 20, participantCooldown: 20 },
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
                 ],
-                cooldown: 40,
-                setCount: 12,
+                cooldown: 30,
+                setCount: 8,
             },
             {
-                name: 'Cool Down',
-                sets: [{ duration: 30, cooldown: 10, participantCooldown: 20 }],
-                cooldown: 0,
-                setCount: 12,
+                name: 'Straight Leg Deadlifts',
+                sets: [
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
+                    { duration: 30, cooldown: 15, participantCooldown: 15 },
+                ],
+                cooldown: 30,
+                setCount: 8,
             },
         ],
-        participants: ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve'],
+        participants: ['1', '2', '3', '4', '5'],
     }
 
     return (
         <div className="App">
             <WorkoutTimer workoutPlan={workoutPlan} />
+            <h5
+                style={{
+                    marginTop: `5rem`,
+                }}
+            >
+                {workoutPlan.workouts.map((workOut): any => {
+                    return (
+                        <div
+                            style={{
+                                display: `block`,
+                                borderBottom: `.5px solid grey`,
+                                width: ``,
+                            }}
+                        >
+                            <div>{workOut.name}</div>
+                            <div>{`${workOut.sets.length}x${workOut.setCount}`}</div>
+                        </div>
+                    )
+                })}
+            </h5>
         </div>
     )
 }
